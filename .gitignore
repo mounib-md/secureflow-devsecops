@@ -37,3 +37,4 @@ target/
 *.jar
 gitleaks-report.json
 trivy-fs-report.json
+.env
