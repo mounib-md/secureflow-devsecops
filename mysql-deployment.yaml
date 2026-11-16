@@ -42,14 +42,13 @@ spec:
         - name: mysql
           image: mysql:8.0
           env:
-          - name: MYSQL_ROOT_PASSWORD
-  valueFrom:
-    secretKeyRef:
-      name: spring-secret
-      key: SPRING_DATASOURCE_PASSWORD
-           - name: MYSQL_DATABASE
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: spring-secret
+                  key: SPRING_DATASOURCE_PASSWORD
+            - name: MYSQL_DATABASE
               value: studentdb
-          ports:
             - containerPort: 3306
           volumeMounts:
             - mountPath: /var/lib/mysql
